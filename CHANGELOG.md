@@ -2,6 +2,9 @@
 
 This list is not currently intended to be all-encompassing - it will document major and breaking API changes with their rationale when appropriate:
 
+### v3.104.0
+- Add `http4k-server-ktorcio` server backend. Note that whilst this module does allow http4k apps to plug into the Ktor CIO engine, it does not provide fully front-to-back coroutine support.
+
 ### v3.103.2
 - Fix `access-control-allow-origin` returned when server supports multiple origins H/T @johnnorris
 

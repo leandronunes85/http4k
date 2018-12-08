@@ -8,9 +8,11 @@ description: Feature overview of the http4k-server modules, covering Server back
 
 **Undertow:** ```compile group: "org.http4k", name: "http4k-server-undertow", version: "3.103.2"```
 
-**SunHttp (for development only):** ```compile group: "org.http4k", name: "http4k-core", version: "3.103.2"```
-
 **Apache:** ```compile group: "org.http4k", name: "http4k-server-apache", version: "3.103.2"```
+
+**Ktor CIO:** ```compile group: "org.http4k", name: "http4k-server-ktorcio", version: "3.103.2"```
+
+**SunHttp (for development only):** ```compile group: "org.http4k", name: "http4k-core", version: "3.103.2"```
 
 ### About
 Server-backend modules provide a consistent API mount HttpHandlers into the specified container in 1 LOC, by simply passing a `ServerConfig` implementation (in this case `Jetty`):
