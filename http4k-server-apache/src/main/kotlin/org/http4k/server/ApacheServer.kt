@@ -18,7 +18,6 @@ import org.http4k.core.safeLong
 import org.http4k.core.then
 import org.http4k.filter.ServerFilters
 import java.net.InetAddress
-import java.util.concurrent.TimeUnit
 import org.apache.http.HttpRequest as ApacheRequest
 import org.apache.http.HttpResponse as ApacheResponse
 
@@ -85,7 +84,7 @@ data class ApacheServer(val port: Int = 8000, val address: InetAddress?) : Serve
 
         override fun start() = apply { server.start() }
 
-        override fun stop() = apply { server.shutdown(15, TimeUnit.SECONDS) }
+        override fun stop() = apply { server.stop() }
 
         override fun port(): Int = if (port != 0) port else server.localPort
     }
