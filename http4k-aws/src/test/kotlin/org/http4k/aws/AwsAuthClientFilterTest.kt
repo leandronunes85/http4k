@@ -54,7 +54,7 @@ class AwsClientFilterTest {
 class AuditHandler : HttpHandler {
     var captured: Request? = null
 
-    override fun invoke(request: Request): Response {
+    override suspend fun invoke(request: Request): Response {
         captured = request
         return Response(Status.OK)
     }
