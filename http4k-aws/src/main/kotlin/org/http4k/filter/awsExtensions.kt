@@ -23,7 +23,7 @@ fun ClientFilters.AwsAuth(scope: AwsCredentialScope,
                           payloadMode: Payload.Mode = Payload.Mode.Signed) =
     Filter { next ->
         HttpHandler {
-                val payload = payloadMode(it)
+            val payload = payloadMode(it)
 
             val date = AwsRequestDate.of(clock.instant())
 
