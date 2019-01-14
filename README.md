@@ -40,7 +40,7 @@ plugging together of services without HTTP container being required.
     * full suites of microservices
 * **Modularity:** Common behaviours are abstracted into the `http4k-core` module. Current add-on modules provide:
     * Pluggable HTTP client adapters for Apache, Jetty, OkHttp and Websockets
-    * Pluggable Server backends: Single LOC Server spinup for Jetty, Netty, Undertow, Apache (Httpcore) and SunHttp. 
+    * Pluggable Server backends: Single LOC Server spinup for Jetty, Netty, Undertow, Apache (Httpcore), Ktor CIO and SunHttp. 
      * Serverless backends: Test your application locally and then deploy it to AWS Lambda.
     * Templating support: Caching and Hot-Reload engine support for Handlebars, Pebble, Dust and Thymeleaf
     * HTTP message adapters for Argo JSON, Gson JSON, Jackson JSON, Moshi JSON and XML - includes auto-marshalling capabilities to convert directly to Kotlin data classes.
@@ -77,9 +77,10 @@ plugging together of services without HTTP container being required.
 * [Server:](https://http4k.org/guide/modules/servers)
     * **1LOC** server backend spinup for:
         * **Jetty** (including websocket support)
-        * **Netty**
         * **Undertow**
         * **Apache** (from httpcore)
+        * **Netty**
+        * **Ktor CIO**
         * **SunHttp** (bundled with `http4k-core`)
     * API design allows for plugging into configurable instances of each
 * [Serverless:](https://http4k.org/guide/modules/serverless)
@@ -133,9 +134,9 @@ This quick example is designed to convey the simplicity & features of [**http4k*
 To install, add these dependencies to your **Gradle** file:
 ```groovy
 dependencies {
-    compile group: "org.http4k", name: "http4k-core", version: "3.104.0"
-    compile group: "org.http4k", name: "http4k-server-jetty", version: "3.104.0"
-    compile group: "org.http4k", name: "http4k-client-okhttp", version: "3.104.0"
+    compile group: "org.http4k", name: "http4k-core", version: "3.106.0"
+    compile group: "org.http4k", name: "http4k-server-jetty", version: "3.106.0"
+    compile group: "org.http4k", name: "http4k-client-okhttp", version: "3.106.0"
 }
 ```
 
@@ -211,9 +212,9 @@ fun main() {
 //    HTTP/1.1 200
 //    cache-control: private, must-revalidate
 //    content-length: 9
-//    date: Thu, 08 Jun 3.104.03:01:13 GMT
+//    date: Thu, 08 Jun 3.106.03:01:13 GMT
 //    expires: 0
-//    server: Jetty(9.3.16.v3.104.020)
+//    server: Jetty(9.3.16.v3.106.020)
 //
 //    hello Bob
 }

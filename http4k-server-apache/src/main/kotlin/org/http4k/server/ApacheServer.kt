@@ -18,8 +18,7 @@ import org.http4k.core.safeLong
 import org.http4k.core.then
 import org.http4k.filter.ServerFilters
 import java.net.InetAddress
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeUnit.*
+import java.util.concurrent.TimeUnit.SECONDS
 import org.apache.http.HttpRequest as ApacheRequest
 import org.apache.http.HttpResponse as ApacheResponse
 
@@ -50,11 +49,7 @@ class Http4kRequestHandler(handler: HttpHandler) : HttpRequestHandler {
             setStatusCode(status.code)
             setReasonPhrase(status.description)
             headers.filter { !headersThatApacheInterceptorSets.contains(it.first) }.forEach { (key, value) -> addHeader(key, value) }
-            entity = InputStreamEntity(body.stream, try {
-                body.length
-            } catch (e: IllegalStateException) {
-                -1L
-            })
+            entity = InputStreamEntity(body.stream,body.length ?: -1L)
         }
     }
 
